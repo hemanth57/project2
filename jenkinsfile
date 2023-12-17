@@ -1,0 +1,21 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git clone'){
+            steps{
+               sh 'git clone https://github.com/hemanth57/project2.git'
+            }
+        }
+        stage('Terraform init'){
+            steps{
+                sh 'terraform init'
+            }
+        }
+        stage('Terraform apply'){
+            steps{
+                sh 'terraform apply --auto-approve'
+            }
+        }
+        
+    }
+}

@@ -1,10 +1,10 @@
 # Public subnet EC2 instance 1
 resource "aws_instance" "project2-web-server-1" {
-  ami             = "ami-0230bd60aa48260c6"
+  ami             = "ami-067f3514568fd5760"
   instance_type   = "t3.micro"
   security_groups = [aws_security_group.project2-ec2-sg.id]
   subnet_id       = aws_subnet.project2-pub-sub-1.id
-  key_name   = "project2-key"
+  key_name   = "jenkins"
 
   tags = {
     Name = "project2-web-server-1"
@@ -21,11 +21,11 @@ EOF
 
 # Public subnet  EC2 instance 2
 resource "aws_instance" "project2-web-server-2" {
-  ami             = "ami-0230bd60aa48260c6"
+  ami             = "ami-067f3514568fd5760"
   instance_type   = "t3.micro"
   security_groups = [aws_security_group.project2-ec2-sg.id]
   subnet_id       = aws_subnet.project2-pub-sub-2.id
-  key_name   = "project2-key"
+  key_name   = "jenkins"
 
   tags = {
     Name = "project2-web-server-2"

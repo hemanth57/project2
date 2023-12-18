@@ -1,0 +1,30 @@
+pipeline{
+    agent any
+    tools {
+        terraform 'terraform'
+    }
+     stages{
+        stage('Git Checkout'){
+            steps{
+                git branch: 'main', url: 'https://github.com/hemanth57/project2'
+            }
+        }
+        
+         stage('ls -ltra'){
+            steps{
+                sh 'ls -ltra'
+            }
+        }
+        stage('Terraform init'){
+            steps{
+                sh 'terraform init'
+            }
+        }
+        
+        stage('Terraform apply'){
+            steps{
+                sh 'terraform apply --auto-approve'
+            }
+        }
+    }
+}
